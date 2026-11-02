@@ -1,0 +1,75 @@
+// Measures for the Pharma Distribution Power BI report.
+// Create them in a table called _Measures (Home → Enter data → empty table named _Measures),
+// then New measure → paste one block at a time. Display folders are suggestions.
+
+// ---------- Sales ----------
+Net Sales =
+CALCULATE ( SUM ( OrderLines[net_amount_try] ), OrderLines[is_cancelled] = FALSE () )
+
+Returns Value =
+CALCULATE ( SUM ( OrderLines[returned_amount_try] ), OrderLines[is_cancelled] = FALSE () )
+
+Return Rate % =
+DIVIDE ( [Returns Value], [Net Sales] )
+
+Orders =
+CALCULATE ( DISTINCTCOUNT ( OrderLines[order_id] ), OrderLines[is_cancelled] = FALSE () )
+
+Cancelled Orders =
+CALCULATE ( DISTINCTCOUNT ( OrderLines[order_id] ), OrderLines[is_cancelled] = TRUE () )
+
+Cancellation Rate % =
+DIVIDE ( [Cancelled Orders], [Orders] + [Cancelled Orders] )
+
+Active Pharmacies =
+CALCULATE ( DISTINCTCOUNT ( OrderLines[pharmacy_code] ), OrderLines[is_cancelled] = FALSE () )
+
+Avg Order Value =
+DIVIDE ( [Net Sales], [Orders] )
+
+Net Sales PM =
+CALCULATE ( [Net Sales], DATEADD ( 'Date'[date_day], -1, MONTH ) )
+
+Net Sales MoM % =
+DIVIDE ( [Net Sales] - [Net Sales PM], [Net Sales PM] )
+
+// ---------- Delivery ----------
+Delivered Orders =
+CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE () )
+
+On-Time % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE (), Deliveries[is_on_time] = TRUE () ),
+    [Delivered Orders]
+)
+
+OTIF % =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE (), Deliveries[is_otif] = TRUE () ),
+    [Delivered Orders]
+)
+
+Avg Lead Time (h) =
+CALCULATE ( AVERAGE ( Deliveries[lead_time_hours] ), Deliveries[is_delivered] = TRUE () )
+
+On-Time Target = 0.90
+
+On-Time Gap to Target =
+[On-Time %] - [On-Time Target]
+
+// ---------- Expiry ----------
+Expired Units =
+CALCULATE ( SUM ( OrderLines[expired_quantity] ), OrderLines[is_cancelled] = FALSE () )
+
+Expired Value =
+CALCULATE (
+    SUMX ( OrderLines, OrderLines[expired_quantity] * OrderLines[unit_price_try] * ( 1 - OrderLines[discount_pct] / 100 ) ),
+    OrderLines[is_cancelled] = FALSE ()
+)
+
+Expiry Rate % =
+DIVIDE ( [Expired Units], CALCULATE ( SUM ( OrderLines[quantity] ), OrderLines[is_cancelled] = FALSE () ) )
+
+Top 10 SKU Share of Expiry =
+VAR Top10 = TOPN ( 10, ALL ( Product[sku] ), [Expired Value] )
+RETURN DIVIDE ( CALCULATE ( [Expired Value], Top10 ), CALCULATE ( [Expired Value], ALL ( Product ) ) )

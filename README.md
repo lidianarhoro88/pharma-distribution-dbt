@@ -93,6 +93,24 @@ duckdb pharma.duckdb "select * from marts.mart_expiry_risk limit 10"
 
 The generated dbt documentation (lineage graph, every column and test) is in [`docs/index.html`](docs/index.html).
 
+## Power BI report
+
+The marts feed a three-page Power BI report (Overview, Delivery, Expiry risk), styled with a wine and gold theme.
+
+```bash
+python scripts/export_powerbi.py      # marts → powerbi/data/*.csv
+```
+
+| File | Purpose |
+|---|---|
+| `powerbi/data/*.csv` | Pharmacy, Product, Date, Warehouse, OrderLines, Deliveries |
+| `powerbi/measures.dax` | 20 DAX measures: net sales, return rate, on-time %, OTIF %, expired value, top-10 SKU share |
+| `powerbi/theme_wine_gold.json` | report theme |
+
+Model: `OrderLines` and `Deliveries` are facts; `Date`, `Product`, `Pharmacy` and `Warehouse` filter them (one-to-many, single direction). `Pharmacy` holds the current version of each pharmacy; the SCD2 history stays in `marts.dim_pharmacy`.
+
+Reconciliation targets (the report must show the same numbers as the dbt marts): net sales ₺33.83 M, return rate 1.88 %, on-time 86.7 %, OTIF 77.3 %, expired value ₺289.7 K, top-10 SKU share 44.9 %.
+
 ## Modelling decisions
 
 - **Grain first.** `fct_order_lines` is one row per ERP order line; `fct_deliveries` is one row per dispatched order. Measures that live at different grains are kept in different facts instead of being repeated on every line.

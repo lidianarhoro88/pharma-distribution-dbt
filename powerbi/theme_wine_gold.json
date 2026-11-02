@@ -1,0 +1,19 @@
+{
+  "name": "Wine and Gold",
+  "dataColors": ["#5C2E3E", "#9A7633", "#A0566E", "#C7A46A", "#3E1C29", "#7A6A55", "#D49AAE", "#6E5A61"],
+  "background": "#FFFCF7",
+  "foreground": "#2A1A20",
+  "tableAccent": "#5C2E3E",
+  "good": "#2F7D5B",
+  "neutral": "#9A7633",
+  "bad": "#A3333D",
+  "maximum": "#5C2E3E",
+  "center": "#C7A46A",
+  "minimum": "#F6F1EA",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 13, "color": "#2A1A20" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#6E5A61" },
+    "callout": { "fontFace": "Segoe UI Light", "fontSize": 28, "color": "#5C2E3E" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#2A1A20" }
+  }
+}
