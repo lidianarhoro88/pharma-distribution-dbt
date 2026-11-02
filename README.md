@@ -2,6 +2,8 @@
 
 An analytics engineering project for a **fictional Istanbul pharmaceutical wholesaler** delivering to 180 pharmacies from two warehouses. Raw ERP extracts are transformed with **dbt** into a tested star schema with an **SCD Type 2** pharmacy dimension, delivery performance (OTIF) and expiry-loss marts.
 
+**[Browse the live dbt docs and lineage graph →](https://lidianarhoro88.github.io/pharma-distribution-dbt/)**
+
 `dbt build` runs **54 nodes** (models, snapshot and 39 data tests) in about 2 seconds on DuckDB, and the whole project runs on a laptop with no database server.
 
 ## Business questions
