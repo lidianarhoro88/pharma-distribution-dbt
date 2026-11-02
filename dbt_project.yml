@@ -1,0 +1,27 @@
+name: pharma_distribution
+version: "1.0.0"
+config-version: 2
+profile: pharma_distribution
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  pharma_distribution:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
+
+snapshots:
+  pharma_distribution:
+    +target_schema: snapshots

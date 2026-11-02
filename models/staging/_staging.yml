@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: stg_erp__pharmacies
+    description: One row per pharmacy. Codes upper-cased, district spellings normalised.
+    columns:
+      - name: pharmacy_code
+        tests: [unique, not_null]
+      - name: district
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Kadıköy', 'Beşiktaş', 'Üsküdar', 'Şişli', 'Bakırköy', 'Ataşehir', 'Fatih', 'Pendik']
+      - name: segment
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Chain', 'Independent', 'Hospital']
+
+  - name: stg_erp__products
+    columns:
+      - name: sku
+        tests: [unique, not_null]
+      - name: atc_group_name
+        tests: [not_null]
+
+  - name: stg_erp__orders
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: pharmacy_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__pharmacies')
+                field: pharmacy_code
+      - name: order_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['DELIVERED', 'CANCELLED', 'IN_TRANSIT']
+
+  - name: stg_erp__order_lines
+    description: Order lines with duplicated extract rows removed.
+    columns:
+      - name: line_id
+        tests: [unique, not_null]
+      - name: order_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__orders')
+                field: order_id
+      - name: sku
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__products')
+                field: sku
+
+  - name: stg_erp__deliveries
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+
+  - name: stg_erp__returns
+    columns:
+      - name: return_id
+        tests: [unique, not_null]
+      - name: return_reason
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['EXPIRED', 'DAMAGED', 'WRONG_ITEM']

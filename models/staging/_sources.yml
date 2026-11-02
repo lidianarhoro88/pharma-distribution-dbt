@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: erp
+    description: Daily CSV extracts from the wholesaler's ERP, landed as-is in data/raw.
+    meta:
+      external_location: "data/raw/{name}.csv"
+    tables:
+      - name: pharmacies
+        description: Pharmacy customers (master data, changes over time).
+      - name: products
+        description: Product catalogue with ATC group and cold-chain flag.
+      - name: orders
+        description: Sales order headers.
+      - name: order_lines
+        description: Sales order lines. The extract can contain duplicated lines.
+      - name: deliveries
+        description: Dispatch, promised and delivered timestamps per order.
+      - name: returns
+        description: Returned quantities with a reason code.

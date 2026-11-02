@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendar dimension, one row per day.
+    columns:
+      - name: date_day
+        tests: [unique, not_null]
+
+  - name: dim_product
+    columns:
+      - name: sku
+        tests: [unique, not_null]
+
+  - name: dim_pharmacy
+    description: SCD Type 2 pharmacy dimension. One row per pharmacy version.
+    columns:
+      - name: pharmacy_key
+        tests: [unique, not_null]
+      - name: pharmacy_code
+        tests: [not_null]
+    tests:
+      - one_current_row_per_pharmacy
+
+  - name: fct_order_lines
+    description: Order-line fact. Grain = one ERP order line.
+    columns:
+      - name: line_id
+        tests: [unique, not_null]
+      - name: pharmacy_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_pharmacy')
+                field: pharmacy_key
+      - name: sku
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: sku
+      - name: order_date
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+
+  - name: fct_deliveries
+    description: One row per dispatched order with on-time, in-full and OTIF flags.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+
+  - name: mart_monthly_sales
+    description: Monthly sales KPIs by ATC group (excludes cancelled orders).
+
+  - name: mart_expiry_risk
+    description: Products ranked by value lost to expired returns.

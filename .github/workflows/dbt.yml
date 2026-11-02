@@ -1,0 +1,20 @@
+name: dbt build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DBT_PROFILES_DIR: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Day 1 extract + build
+        run: python scripts/generate_data.py --day 1 && dbt build
+      - name: Day 2 extract + build (SCD2 changes)
+        run: python scripts/generate_data.py --day 2 && dbt build
