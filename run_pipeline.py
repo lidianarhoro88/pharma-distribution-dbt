@@ -5,6 +5,7 @@
 3. Build again: the snapshot closes the old versions and opens new ones (SCD Type 2),
    and every test runs against the new data.
 4. Generate the static dbt docs site into docs/.
+5. Export the marts to powerbi/data/ for the Power BI report.
 """
 import os
 import shutil
@@ -14,6 +15,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 os.environ.setdefault("DBT_PROFILES_DIR", str(ROOT))
+
+# Call dbt through this Python interpreter, so it works even when the `dbt`
+# command is not on PATH (common in Codespaces and fresh virtual environments).
+DBT = (sys.executable, "-m", "dbt.cli.main")
 
 
 def run(*cmd: str) -> None:
@@ -26,11 +31,12 @@ if __name__ == "__main__":
     if db.exists():
         db.unlink()
     run(sys.executable, "scripts/generate_data.py", "--day", "1")
-    run("dbt", "build")
+    run(*DBT, "build")
     run(sys.executable, "scripts/generate_data.py", "--day", "2")
-    run("dbt", "build")
-    run("dbt", "docs", "generate", "--static")
+    run(*DBT, "build")
+    run(*DBT, "docs", "generate", "--static")
     docs = ROOT / "docs"
     docs.mkdir(exist_ok=True)
     shutil.copy(ROOT / "target" / "static_index.html", docs / "index.html")
-    print("\nDone. Warehouse: pharma.duckdb · Docs: docs/index.html")
+    run(sys.executable, "scripts/export_powerbi.py")
+    print("\nDone. Warehouse: pharma.duckdb · Docs: docs/index.html · Power BI data: powerbi/data/")

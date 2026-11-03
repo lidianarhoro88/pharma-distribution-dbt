@@ -73,7 +73,7 @@ Generic tests (`unique`, `not_null`, `relationships`, `accepted_values`) cover e
 
 ```bash
 pip install -r requirements.txt
-python run_pipeline.py      # day-1 build → day-2 build (SCD2 changes) → static docs
+python run_pipeline.py      # day-1 build → day-2 build (SCD2 changes) → static docs → Power BI CSVs
 ```
 
 Or step by step:

@@ -1,12 +1,12 @@
 pharmacy_code,pharmacy_name,district,segment,credit_limit_try,opened_on
-PH-0001,Eczane Lale 1,Beşiktaş,Hospital,50000,2025-08-09
+PH-0001,Eczane Lale 1,Beşiktaş,Hospital,100000,2025-08-09
 ph-0002,Eczane Hayat 2,Pendik,Independent,100000,2024-04-23
-PH-0003,Eczane Yıldız 3,Bakırköy,Independent,250000,2025-02-10
+PH-0003,Eczane Yıldız 3,Şişli,Independent,250000,2025-02-10
 PH-0004,Eczane Hayat 4,Bakırköy,Hospital,150000,2024-12-14
 PH-0005,Eczane Merkez 5,Beşiktaş,Independent,250000,2024-01-26
 PH-0006,Eczane Nur 6,Ataşehir,Independent,250000,2024-04-29
 PH-0007,Eczane Merkez 7,Fatih,Independent,250000,2025-03-06
-PH-0008,Eczane Şifa 8,Pendik,Independent,100000,2025-06-19
+PH-0008,Eczane Şifa 8,Pendik,Chain,100000,2025-06-19
 PH-0009,Eczane Yıldız 9,Beşiktaş,Independent,100000,2024-05-04
 PH-0010,Eczane Merkez 10,Pendik,Independent,150000,2025-07-15
 PH-0011,Eczane Merkez 11,Pendik,Independent,100000,2024-01-10
@@ -40,14 +40,14 @@ ph-0038,Eczane Lale 38,Bakırköy,Hospital,150000,2024-01-25
 PH-0039,Eczane Lale 39,Bakırköy,Independent,50000,2024-11-22
 PH-0040,Eczane Hayat 40,Kadıköy,Independent,50000,2024-06-15
 ph-0041,Eczane Deniz 41,Beşiktaş,Independent,150000,2024-12-30
-PH-0042,Eczane Deniz 42,Fatih,Independent,250000,2024-07-06
+PH-0042,Eczane Deniz 42,Üsküdar,Independent,250000,2024-07-06
 PH-0043,Eczane Deniz 43,Kadıköy,Hospital,250000,2024-08-21
 PH-0044,Eczane Hayat 44,Kadikoy ,Independent,150000,2024-07-02
 PH-0045,Eczane Güneş 45,Kadıköy,Hospital,150000,2024-02-27
-PH-0046,Eczane Deniz 46,Kadıköy,Independent,50000,2025-02-12
+PH-0046,Eczane Deniz 46,Şişli,Independent,50000,2025-02-12
 PH-0047,Eczane Yıldız 47,Ataşehir,Independent,150000,2025-01-18
 PH-0048,Eczane Merkez 48,Ataşehir,Independent,250000,2024-07-11
-PH-0049,Eczane Lale 49,Üsküdar,Chain,50000,2024-02-08
+PH-0049,Eczane Lale 49,Üsküdar,Chain,100000,2024-02-08
 PH-0050,Eczane Hayat 50,USKUDAR,Independent,150000,2024-01-19
 PH-0051,Eczane Lale 51,Şişli,Independent,150000,2025-01-24
 PH-0052,Eczane Güneş 52,Üsküdar,Chain,100000,2025-07-14
@@ -66,7 +66,7 @@ PH-0064,Eczane Deniz 64,ATASEHIR,Independent,150000,2025-07-28
 PH-0065,Eczane Güneş 65,Besiktas,Independent,250000,2025-02-23
 PH-0066,Eczane Güneş 66,ATASEHIR,Hospital,100000,2024-03-02
 PH-0067,Eczane Lale 67,Fatih,Chain,150000,2025-05-02
-PH-0068,Eczane Merkez 68,Pendik,Chain,100000,2024-11-30
+PH-0068,Eczane Merkez 68,Pendik,Chain,150000,2024-11-30
 PH-0069,Eczane Güneş 69,Kadıköy,Independent,150000,2024-03-21
 PH-0070,Eczane Yıldız 70,Şişli,Chain,50000,2025-04-19
 ph-0071,Eczane Lale 71,Şişli,Chain,150000,2025-06-18
@@ -78,7 +78,7 @@ PH-0076,Eczane Hayat 76,Beşiktaş,Independent,150000,2025-06-05
 PH-0077,Eczane Deniz 77,Ataşehir,Independent,150000,2024-09-20
 ph-0078,Eczane Yıldız 78,Fatih,Hospital,100000,2024-08-02
 PH-0079,Eczane Merkez 79,Fatih,Independent,100000,2025-05-15
-PH-0080,Eczane Lale 80,Üsküdar,Independent,150000,2025-06-29
+PH-0080,Eczane Lale 80,Pendik,Independent,150000,2025-06-29
 PH-0081,Eczane Deniz 81,Sisli,Independent,100000,2025-08-09
 PH-0082,Eczane Deniz 82,Kadıköy,Independent,150000,2024-05-22
 PH-0083,Eczane Deniz 83,Bakırköy,Independent,100000,2024-02-24
@@ -89,12 +89,12 @@ PH-0087,Eczane Lale 87,KADIKOY,Independent,50000,2024-07-23
 PH-0088,Eczane Lale 88,Uskudar,Hospital,100000,2025-03-09
 PH-0089,Eczane Nur 89,Pendik,Independent,150000,2025-07-26
 PH-0090,Eczane Güneş 90,Pendik,Independent,50000,2024-06-10
-ph-0091,Eczane Deniz 91,Besiktas,Independent,250000,2024-10-02
-PH-0092,Eczane Merkez 92,Bakırköy,Independent,250000,2024-12-28
-PH-0093,Eczane Güneş 93,Pendik,Chain,100000,2025-04-11
+ph-0091,Eczane Deniz 91,Kadıköy,Independent,250000,2024-10-02
+PH-0092,Eczane Merkez 92,Bakırköy,Chain,250000,2024-12-28
+PH-0093,Eczane Güneş 93,Pendik,Chain,150000,2025-04-11
 PH-0094,Eczane Hayat 94,Fatih,Independent,150000,2025-04-17
 PH-0095,Eczane Merkez 95,Pendik,Independent,50000,2024-02-08
-PH-0096,Eczane Lale 96,Beşiktaş,Chain,250000,2025-08-11
+PH-0096,Eczane Lale 96,Beşiktaş,Independent,250000,2025-08-11
 PH-0097,Eczane Deniz 97,Pendik,Independent,100000,2024-01-28
 ph-0098,Eczane Şifa 98,Beşiktaş,Chain,150000,2024-03-13
 PH-0099,Eczane Merkez 99,Beşiktaş,Independent,150000,2025-04-27
@@ -132,8 +132,8 @@ PH-0130,Eczane Güneş 130,Bakırköy,Independent,150000,2025-02-02
 PH-0131,Eczane Yıldız 131,Sisli,Independent,150000,2025-07-26
 PH-0132,Eczane Yıldız 132,Fatih,Independent,50000,2024-06-28
 PH-0133,Eczane Yıldız 133,Pendik,Independent,100000,2025-01-17
-PH-0134,Eczane Hayat 134,Kadıköy,Hospital,50000,2025-04-13
-PH-0135,Eczane Güneş 135,Ataşehir,Hospital,50000,2024-11-14
+PH-0134,Eczane Hayat 134,Şişli,Hospital,50000,2025-04-13
+PH-0135,Eczane Güneş 135,Ataşehir,Hospital,100000,2024-11-14
 PH-0136,Eczane Lale 136,Kadıköy,Independent,100000,2024-04-11
 PH-0137,Eczane Deniz 137,Beşiktaş,Chain,250000,2024-05-07
 PH-0138,Eczane Hayat 138,Beşiktaş,Chain,250000,2025-07-17
@@ -144,7 +144,7 @@ PH-0142,Eczane Lale 142,Kadıköy,Independent,150000,2024-04-14
 PH-0143,Eczane Hayat 143,Şişli,Independent,250000,2025-08-14
 PH-0144,Eczane Deniz 144,Bakırköy,Independent,150000,2025-06-24
 PH-0145,Eczane Merkez 145,FATIH,Independent,150000,2024-07-31
-PH-0146,Eczane Yıldız 146,PENDIK,Hospital,150000,2024-01-02
+PH-0146,Eczane Yıldız 146,PENDIK,Hospital,200000,2024-01-02
 PH-0147,Eczane Hayat 147,Şişli,Independent,150000,2024-12-10
 PH-0148,Eczane Güneş 148,Fatih,Independent,250000,2025-03-16
 ph-0149,Eczane Güneş 149,Pendik,Independent,150000,2025-01-30
@@ -155,10 +155,10 @@ PH-0153,Eczane Şifa 153,Beşiktaş,Independent,250000,2024-10-23
 PH-0154,Eczane Hayat 154,USKUDAR,Independent,50000,2025-02-01
 PH-0155,Eczane Güneş 155,Kadıköy,Independent,150000,2025-07-24
 PH-0156,Eczane Deniz 156,Pendik,Independent,100000,2025-02-10
-PH-0157,Eczane Deniz 157,Kadikoy ,Independent,250000,2024-01-01
+PH-0157,Eczane Deniz 157,Kadikoy ,Independent,300000,2024-01-01
 PH-0158,Eczane Merkez 158,Bakırköy,Chain,100000,2025-04-18
 ph-0159,Eczane Hayat 159,Üsküdar,Independent,150000,2024-07-16
-PH-0160,Eczane Şifa 160,Pendik,Independent,50000,2025-01-10
+PH-0160,Eczane Şifa 160,Pendik,Chain,50000,2025-01-10
 ph-0161,Eczane Hayat 161,Beşiktaş,Chain,150000,2025-07-10
 PH-0162,Eczane Deniz 162,Beşiktaş,Independent,150000,2024-06-23
 PH-0163,Eczane Nur 163,USKUDAR,Independent,250000,2025-01-06
@@ -167,7 +167,7 @@ PH-0165,Eczane Nur 165,Kadıköy,Independent,100000,2024-02-04
 PH-0166,Eczane Hayat 166,BAKIRKOY,Independent,50000,2024-09-21
 PH-0167,Eczane Şifa 167,FATIH,Independent,100000,2024-03-10
 PH-0168,Eczane Şifa 168,Bakırköy,Chain,100000,2024-01-31
-PH-0169,Eczane Lale 169,ATASEHIR,Chain,250000,2024-12-08
+PH-0169,Eczane Lale 169,ATASEHIR,Chain,300000,2024-12-08
 PH-0170,Eczane Nur 170,Sisli,Independent,250000,2025-03-15
 PH-0171,Eczane Merkez 171,Kadıköy,Independent,150000,2025-07-22
 PH-0172,Eczane Şifa 172,Ataşehir,Independent,50000,2025-03-19
