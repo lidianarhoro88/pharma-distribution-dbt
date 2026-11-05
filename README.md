@@ -97,6 +97,8 @@ The generated dbt documentation (lineage graph, every column and test) is in [`d
 
 The marts feed a three-page Power BI report (Overview, Delivery, Expiry risk), styled with a wine and gold theme.
 
+**[Open the live Power BI report](https://app.powerbi.com/view?r=eyJrIjoiMDIwMjY0NjEtMzQwNS00NjVmLTk1MGUtMWIzNmU5MTc1NjUwIiwidCI6IjM4N2Q0NmE2LWU4NWMtNDA4Ni1iYWVjLTY1YmU0NjIwNDczMiIsImMiOjl9)** (interactive, no sign-in needed)
+
 ```bash
 python scripts/export_powerbi.py      # marts → powerbi/data/*.csv
 ```
