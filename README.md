@@ -108,6 +108,7 @@ Open `powerbi/report/Pharma Distribution.pbip` in Power BI Desktop and select **
 | `powerbi/data/*.csv` | Pharmacy, Product, Date, Warehouse, OrderLines, Deliveries |
 | `powerbi/measures.dax` | 20 DAX measures: net sales, return rate, on-time %, OTIF %, expired value, top-10 SKU share |
 | `powerbi/theme_wine_gold.json` | report theme |
+| `powerbi/Pharma_Distribution.pbix` | the finished report as a single file, with the data loaded |
 | `powerbi/report/Pharma Distribution.pbip` | the Power BI project: model (TMDL), measures, relationships and the three report pages, as text files |
 
 Model: `OrderLines` and `Deliveries` are facts; `Date`, `Product`, `Pharmacy` and `Warehouse` filter them (one-to-many, single direction). `Pharmacy` holds the current version of each pharmacy; the SCD2 history stays in `marts.dim_pharmacy`.
