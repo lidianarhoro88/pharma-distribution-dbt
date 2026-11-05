@@ -1,0 +1,50 @@
+table Product
+	lineageTag: 2e6cd20b-f2e3-c71e-b75a-37058a653a24
+
+	column sku
+		dataType: string
+		lineageTag: 67040c36-aa13-aa98-98e6-4c9cba3c7f46
+		summarizeBy: none
+		sourceColumn: sku
+
+	column product_name
+		dataType: string
+		lineageTag: 6eacd874-6c2c-55d0-56e4-68e355e39fb8
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column atc_group
+		dataType: string
+		lineageTag: ecec0227-468f-ad76-b097-278e59b32d5b
+		summarizeBy: none
+		sourceColumn: atc_group
+
+	column atc_group_name
+		dataType: string
+		lineageTag: 5378a407-f2fa-5574-52a5-5088a725629f
+		summarizeBy: none
+		sourceColumn: atc_group_name
+
+	column is_cold_chain
+		dataType: boolean
+		lineageTag: dd9baa1b-b18b-86a2-d200-b02270e0998b
+		summarizeBy: none
+		sourceColumn: is_cold_chain
+
+	column list_price_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0ff571cb-b3bc-556e-3be8-874e96d7a83a
+		summarizeBy: none
+		sourceColumn: list_price_try
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/Product.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"sku", type text}, {"product_name", type text}, {"atc_group", type text}, {"atc_group_name", type text}, {"is_cold_chain", type logical}, {"list_price_try", type number}}, "en-US")
+				in
+				    Typed
+

@@ -1,0 +1,136 @@
+table Deliveries
+	lineageTag: 8ee41e70-1400-1a66-b76d-a566422b2f83
+
+	measure 'Delivered Orders' = CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE () )
+		formatString: #,0
+		displayFolder: Delivery
+		lineageTag: 24b98c21-b378-29e7-d9d7-eaf8aab1221f
+
+	measure 'On-Time %' = DIVIDE ( CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE (), Deliveries[is_on_time] = TRUE () ), [Delivered Orders] )
+		formatString: 0.0%
+		displayFolder: Delivery
+		lineageTag: 5e75dfd7-af1b-878a-5a81-0e2453a0e3d0
+
+	measure 'OTIF %' = DIVIDE ( CALCULATE ( COUNTROWS ( Deliveries ), Deliveries[is_delivered] = TRUE (), Deliveries[is_otif] = TRUE () ), [Delivered Orders] )
+		formatString: 0.0%
+		displayFolder: Delivery
+		lineageTag: 899fa9ae-6224-a05b-45e0-ee8d9c778fb6
+
+	measure 'Avg Lead Time (h)' = CALCULATE ( AVERAGE ( Deliveries[lead_time_hours] ), Deliveries[is_delivered] = TRUE () )
+		formatString: 0.0
+		displayFolder: Delivery
+		lineageTag: 4194ee46-66be-f916-b072-6ce31ff8883f
+
+	measure 'On-Time Target' = 0.90
+		formatString: 0%
+		displayFolder: Delivery
+		lineageTag: d1d5cc84-c7d8-75c3-c22b-5f72f455aac4
+
+	measure 'On-Time Gap to Target' = [On-Time %] - [On-Time Target]
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Delivery
+		lineageTag: 23417247-2e80-a2d7-6df6-29c509e8375a
+
+	column order_id
+		dataType: string
+		lineageTag: 9e1a670e-04bf-5f31-18ae-11a556115a1c
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column order_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isHidden
+		lineageTag: 2ee021b5-8938-06bc-5b2b-a184db15aee4
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column pharmacy_code
+		dataType: string
+		isHidden
+		lineageTag: 3e645e51-d15b-9af2-a764-48bf5c4f9bc8
+		summarizeBy: none
+		sourceColumn: pharmacy_code
+
+	column warehouse
+		dataType: string
+		isHidden
+		lineageTag: d4a476ef-4229-415f-10c7-d808dccb237e
+		summarizeBy: none
+		sourceColumn: warehouse
+
+	column carrier
+		dataType: string
+		lineageTag: 56214706-771d-d7f5-1e63-7af6ce48af5b
+		summarizeBy: none
+		sourceColumn: carrier
+
+	column has_cold_chain
+		dataType: boolean
+		lineageTag: 5825b556-0c67-d399-2dd9-ae0077f85694
+		summarizeBy: none
+		sourceColumn: has_cold_chain
+
+	column dispatched_at
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: e2eebeef-4478-28de-6e59-823281a9f834
+		summarizeBy: none
+		sourceColumn: dispatched_at
+
+	column promised_at
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: f0f018ae-3334-a284-bff5-0c050f8ad6a4
+		summarizeBy: none
+		sourceColumn: promised_at
+
+	column delivered_at
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 2aa4882a-1453-385e-5bca-93f403d1361e
+		summarizeBy: none
+		sourceColumn: delivered_at
+
+	column is_delivered
+		dataType: boolean
+		lineageTag: 993fb70b-5511-b9cb-5d18-316107b338b0
+		summarizeBy: none
+		sourceColumn: is_delivered
+
+	column lead_time_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7637a77a-428d-6ca2-b867-7d97076c5c6b
+		summarizeBy: sum
+		sourceColumn: lead_time_hours
+
+	column is_on_time
+		dataType: boolean
+		lineageTag: 39e17dca-aabe-e3a0-f855-fb42754377ea
+		summarizeBy: none
+		sourceColumn: is_on_time
+
+	column is_in_full
+		dataType: boolean
+		lineageTag: c6455649-4a0b-f611-4162-2e35ecf30473
+		summarizeBy: none
+		sourceColumn: is_in_full
+
+	column is_otif
+		dataType: boolean
+		lineageTag: f6138b48-4b98-ce84-f2f1-92fef0c7b7d4
+		summarizeBy: none
+		sourceColumn: is_otif
+
+	partition Deliveries = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/Deliveries.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.ReplaceValue(Promoted, "", null, Replacer.ReplaceValue, {"delivered_at", "lead_time_hours", "is_on_time", "is_otif"}),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"order_id", type text}, {"order_date", type date}, {"pharmacy_code", type text}, {"warehouse", type text}, {"carrier", type text}, {"has_cold_chain", type logical}, {"dispatched_at", type datetime}, {"promised_at", type datetime}, {"delivered_at", type datetime}, {"is_delivered", type logical}, {"lead_time_hours", type number}, {"is_on_time", type logical}, {"is_in_full", type logical}, {"is_otif", type logical}}, "en-US")
+				in
+				    Typed
+

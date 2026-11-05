@@ -1,0 +1,392 @@
+{
+  "id": 0,
+  "theme": "WineGold.json",
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "name": "SharedResources",
+        "type": 2,
+        "disabled": false,
+        "items": [
+          {
+            "type": 202,
+            "path": "BaseThemes/CY26SU02.json",
+            "name": "CY26SU02"
+          }
+        ]
+      }
+    },
+    {
+      "resourcePackage": {
+        "name": "RegisteredResources",
+        "type": 1,
+        "disabled": false,
+        "items": [
+          {
+            "type": 201,
+            "path": "WineGold.json",
+            "name": "WineGold.json"
+          }
+        ]
+      }
+    }
+  ],
+  "sections": [
+    {
+      "id": 0,
+      "name": "acacc132f4b585c76646",
+      "displayName": "Overview",
+      "filters": "[]",
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 880,
+          "height": 64,
+          "config": "{\"name\": \"936e9769886aafd58120\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 880, \"height\": 64, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Sales overview\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\", \"color\": \"#5C2E3E\"}}]}, {\"textRuns\": [{\"value\": \"dbt + DuckDB marts \\u00b7 2026 orders from a fictional Istanbul pharmaceutical distributor\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#6E5A61\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 84,
+          "z": 2000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"c52119c7640387b46f1d\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 84, \"z\": 2000, \"width\": 252, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Warehouse.side\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"w\", \"Entity\": \"Warehouse\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}, \"Name\": \"Warehouse.side\", \"NativeReferenceName\": \"side\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Warehouse'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"side\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 138,
+          "z": 3000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"f973fa3e76d3452f60c4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 138, \"z\": 3000, \"width\": 252, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Pharmacy.segment\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"segment\"}, \"Name\": \"Pharmacy.segment\", \"NativeReferenceName\": \"segment\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Pharmacy segment'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"segment\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16.0,
+          "y": 84,
+          "z": 4000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"c9cffeaa12c60b43c615\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16.0, \"y\": 84, \"z\": 4000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"OrderLines.Net Sales\", \"NativeReferenceName\": \"Net Sales\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 215.2,
+          "y": 84,
+          "z": 5000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"09a60e1ac4a294bf0eaf\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 215.2, \"y\": 84, \"z\": 5000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Orders\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Orders\"}, \"Name\": \"OrderLines.Orders\", \"NativeReferenceName\": \"Orders\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 414.4,
+          "y": 84,
+          "z": 6000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"72a75173d1ef34c39c0b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 414.4, \"y\": 84, \"z\": 6000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Active Pharmacies\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Active Pharmacies\"}, \"Name\": \"OrderLines.Active Pharmacies\", \"NativeReferenceName\": \"Active Pharmacies\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 613.5999999999999,
+          "y": 84,
+          "z": 7000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"31acf56741b9142c9a12\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 613.5999999999999, \"y\": 84, \"z\": 7000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Avg Order Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Avg Order Value\"}, \"Name\": \"OrderLines.Avg Order Value\", \"NativeReferenceName\": \"Avg Order Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 812.8,
+          "y": 84,
+          "z": 8000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"0d2fa262fc8566f2b793\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 812.8, \"y\": 84, \"z\": 8000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Return Rate %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Return Rate %\"}, \"Name\": \"OrderLines.Return Rate %\", \"NativeReferenceName\": \"Return Rate %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 204,
+          "z": 9000,
+          "width": 800,
+          "height": 250,
+          "config": "{\"name\": \"d354fb6b6f477da93bc8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 204, \"z\": 9000, \"width\": 800, \"height\": 250, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Calendar.year_month\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"c\", \"Entity\": \"Calendar\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}, \"Name\": \"Calendar.year_month\", \"NativeReferenceName\": \"year_month\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"OrderLines.Net Sales\", \"NativeReferenceName\": \"Net Sales\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales by month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 828,
+          "y": 204,
+          "z": 10000,
+          "width": 436,
+          "height": 250,
+          "config": "{\"name\": \"94427fd3707dd306f6a6\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 828, \"y\": 204, \"z\": 10000, \"width\": 436, \"height\": 250, \"tabOrder\": 10000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.atc_group_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"atc_group_name\"}, \"Name\": \"Product.atc_group_name\", \"NativeReferenceName\": \"atc_group_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"OrderLines.Net Sales\", \"NativeReferenceName\": \"Net Sales\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales by therapeutic group'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 466,
+          "z": 11000,
+          "width": 800,
+          "height": 242,
+          "config": "{\"name\": \"54c8f93cfac18b6a0c3c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 466, \"z\": 11000, \"width\": 800, \"height\": 242, \"tabOrder\": 11000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Pharmacy.district\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"district\"}, \"Name\": \"Pharmacy.district\", \"NativeReferenceName\": \"district\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"OrderLines.Net Sales\", \"NativeReferenceName\": \"Net Sales\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales by district'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 828,
+          "y": 466,
+          "z": 12000,
+          "width": 436,
+          "height": 242,
+          "config": "{\"name\": \"09483372b67767e4a151\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 828, \"y\": 466, \"z\": 12000, \"width\": 436, \"height\": 242, \"tabOrder\": 12000}}], \"singleVisual\": {\"visualType\": \"donutChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Pharmacy.segment\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"segment\"}, \"Name\": \"Pharmacy.segment\", \"NativeReferenceName\": \"segment\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"OrderLines.Net Sales\", \"NativeReferenceName\": \"Net Sales\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Net Sales\"}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"labelStyle\": {\"expr\": {\"Literal\": {\"Value\": \"'Percent of total'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales by pharmacy segment'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "config": "{}",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "id": 1,
+      "name": "56f4bbba487979bfd2d5",
+      "displayName": "Delivery",
+      "filters": "[]",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 13000,
+          "width": 880,
+          "height": 64,
+          "config": "{\"name\": \"04f8f892c95bc7d12eb4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 13000, \"width\": 880, \"height\": 64, \"tabOrder\": 13000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Delivery performance\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\", \"color\": \"#5C2E3E\"}}]}, {\"textRuns\": [{\"value\": \"On time = delivered before the promised time \\u00b7 OTIF = on time and in full \\u00b7 target 90%\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#6E5A61\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 84,
+          "z": 14000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"0502bd93ab8cc6ca39c3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 84, \"z\": 14000, \"width\": 252, \"height\": 50, \"tabOrder\": 14000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Warehouse.side\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"w\", \"Entity\": \"Warehouse\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}, \"Name\": \"Warehouse.side\", \"NativeReferenceName\": \"side\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Warehouse'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"side\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 138,
+          "z": 15000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"7ade67f0d5a2b9e83128\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 138, \"z\": 15000, \"width\": 252, \"height\": 50, \"tabOrder\": 15000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Pharmacy.segment\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"segment\"}, \"Name\": \"Pharmacy.segment\", \"NativeReferenceName\": \"segment\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Pharmacy segment'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"segment\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16.0,
+          "y": 84,
+          "z": 16000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"bed62467addf4355ce9f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16.0, \"y\": 84, \"z\": 16000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 16000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Deliveries.On-Time %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}, \"Name\": \"Deliveries.On-Time %\", \"NativeReferenceName\": \"On-Time %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 215.2,
+          "y": 84,
+          "z": 17000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"d85d53b502847dd36209\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 215.2, \"y\": 84, \"z\": 17000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 17000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Deliveries.OTIF %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"OTIF %\"}, \"Name\": \"Deliveries.OTIF %\", \"NativeReferenceName\": \"OTIF %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 414.4,
+          "y": 84,
+          "z": 18000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"9b447a4c34e693341b97\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 414.4, \"y\": 84, \"z\": 18000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 18000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Deliveries.On-Time Gap to Target\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time Gap to Target\"}, \"Name\": \"Deliveries.On-Time Gap to Target\", \"NativeReferenceName\": \"On-Time Gap to Target\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 613.5999999999999,
+          "y": 84,
+          "z": 19000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"4913acaaa4d481662105\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 613.5999999999999, \"y\": 84, \"z\": 19000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 19000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Deliveries.Avg Lead Time (h)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Avg Lead Time (h)\"}, \"Name\": \"Deliveries.Avg Lead Time (h)\", \"NativeReferenceName\": \"Avg Lead Time (h)\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 812.8,
+          "y": 84,
+          "z": 20000,
+          "width": 187.2,
+          "height": 104,
+          "config": "{\"name\": \"625e19e02b60f66b89e6\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 812.8, \"y\": 84, \"z\": 20000, \"width\": 187.2, \"height\": 104, \"tabOrder\": 20000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Deliveries.Delivered Orders\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Delivered Orders\"}, \"Name\": \"Deliveries.Delivered Orders\", \"NativeReferenceName\": \"Delivered Orders\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 204,
+          "z": 21000,
+          "width": 420,
+          "height": 250,
+          "config": "{\"name\": \"6cce7bded7f0182b13e7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 204, \"z\": 21000, \"width\": 420, \"height\": 250, \"tabOrder\": 21000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Warehouse.side\", \"active\": true}], \"Y\": [{\"queryRef\": \"Deliveries.On-Time %\"}, {\"queryRef\": \"Deliveries.OTIF %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"w\", \"Entity\": \"Warehouse\", \"Type\": 0}, {\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}, \"Name\": \"Warehouse.side\", \"NativeReferenceName\": \"side\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}, \"Name\": \"Deliveries.On-Time %\", \"NativeReferenceName\": \"On-Time %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"OTIF %\"}, \"Name\": \"Deliveries.OTIF %\", \"NativeReferenceName\": \"OTIF %\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On time and OTIF by warehouse'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 448,
+          "y": 204,
+          "z": 22000,
+          "width": 816,
+          "height": 250,
+          "config": "{\"name\": \"7b61148c3c97a50b8c80\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 448, \"y\": 204, \"z\": 22000, \"width\": 816, \"height\": 250, \"tabOrder\": 22000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Calendar.year_month\", \"active\": true}], \"Y\": [{\"queryRef\": \"Deliveries.On-Time %\"}, {\"queryRef\": \"Deliveries.OTIF %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"c\", \"Entity\": \"Calendar\", \"Type\": 0}, {\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}, \"Name\": \"Calendar.year_month\", \"NativeReferenceName\": \"year_month\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}, \"Name\": \"Deliveries.On-Time %\", \"NativeReferenceName\": \"On-Time %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"OTIF %\"}, \"Name\": \"Deliveries.OTIF %\", \"NativeReferenceName\": \"OTIF %\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On time and OTIF by month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 466,
+          "z": 23000,
+          "width": 420,
+          "height": 242,
+          "config": "{\"name\": \"c94f474694bfbd327d2e\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 466, \"z\": 23000, \"width\": 420, \"height\": 242, \"tabOrder\": 23000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Deliveries.carrier\", \"active\": true}], \"Y\": [{\"queryRef\": \"Deliveries.On-Time %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"carrier\"}, \"Name\": \"Deliveries.carrier\", \"NativeReferenceName\": \"carrier\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}, \"Name\": \"Deliveries.On-Time %\", \"NativeReferenceName\": \"On-Time %\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On time by carrier'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 448,
+          "y": 466,
+          "z": 24000,
+          "width": 816,
+          "height": 242,
+          "config": "{\"name\": \"0a90852879cba48650ca\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 448, \"y\": 466, \"z\": 24000, \"width\": 816, \"height\": 242, \"tabOrder\": 24000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Pharmacy.district\", \"active\": true}, {\"queryRef\": \"Deliveries.Delivered Orders\"}, {\"queryRef\": \"Deliveries.On-Time %\"}, {\"queryRef\": \"Deliveries.OTIF %\"}, {\"queryRef\": \"Deliveries.Avg Lead Time (h)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}, {\"Name\": \"d\", \"Entity\": \"Deliveries\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"district\"}, \"Name\": \"Pharmacy.district\", \"NativeReferenceName\": \"district\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Delivered Orders\"}, \"Name\": \"Deliveries.Delivered Orders\", \"NativeReferenceName\": \"Delivered Orders\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}, \"Name\": \"Deliveries.On-Time %\", \"NativeReferenceName\": \"On-Time %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"OTIF %\"}, \"Name\": \"Deliveries.OTIF %\", \"NativeReferenceName\": \"OTIF %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"Avg Lead Time (h)\"}, \"Name\": \"Deliveries.Avg Lead Time (h)\", \"NativeReferenceName\": \"Avg Lead Time (h)\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"On-Time %\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Districts, worst on-time first'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "config": "{}",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "id": 2,
+      "name": "5c82698b07144fdef0e4",
+      "displayName": "Expiry risk",
+      "filters": "[]",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 25000,
+          "width": 880,
+          "height": 64,
+          "config": "{\"name\": \"bca756ea9b929b21019b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 25000, \"width\": 880, \"height\": 64, \"tabOrder\": 25000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Expiry risk\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\", \"color\": \"#5C2E3E\"}}]}, {\"textRuns\": [{\"value\": \"Expired value = expired units \\u00d7 net unit price \\u00b7 cancelled orders excluded\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#6E5A61\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 84,
+          "z": 26000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"8f0d2d78f3cb8630a251\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 84, \"z\": 26000, \"width\": 252, \"height\": 50, \"tabOrder\": 26000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Warehouse.side\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"w\", \"Entity\": \"Warehouse\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}, \"Name\": \"Warehouse.side\", \"NativeReferenceName\": \"side\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Warehouse'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"side\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1012,
+          "y": 138,
+          "z": 27000,
+          "width": 252,
+          "height": 50,
+          "config": "{\"name\": \"91669de451e47a487c81\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1012, \"y\": 138, \"z\": 27000, \"width\": 252, \"height\": 50, \"tabOrder\": 27000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"Pharmacy.segment\", \"active\": true}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Pharmacy\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"segment\"}, \"Name\": \"Pharmacy.segment\", \"NativeReferenceName\": \"segment\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}], \"header\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"false\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Pharmacy segment'\"}}}}}]}, \"syncGroup\": {\"groupName\": \"segment\", \"fieldChanges\": true, \"filterChanges\": true}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16.0,
+          "y": 84,
+          "z": 28000,
+          "width": 237.0,
+          "height": 104,
+          "config": "{\"name\": \"2c3ee7d83e1d519a2a59\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16.0, \"y\": 84, \"z\": 28000, \"width\": 237.0, \"height\": 104, \"tabOrder\": 28000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Expired Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}, \"Name\": \"OrderLines.Expired Value\", \"NativeReferenceName\": \"Expired Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 265.0,
+          "y": 84,
+          "z": 29000,
+          "width": 237.0,
+          "height": 104,
+          "config": "{\"name\": \"2b7c4bc3bc46aa324705\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 265.0, \"y\": 84, \"z\": 29000, \"width\": 237.0, \"height\": 104, \"tabOrder\": 29000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Expired Units\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Units\"}, \"Name\": \"OrderLines.Expired Units\", \"NativeReferenceName\": \"Expired Units\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 514.0,
+          "y": 84,
+          "z": 30000,
+          "width": 237.0,
+          "height": 104,
+          "config": "{\"name\": \"bffbfbc5b5346f7ae030\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 514.0, \"y\": 84, \"z\": 30000, \"width\": 237.0, \"height\": 104, \"tabOrder\": 30000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Expiry Rate %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expiry Rate %\"}, \"Name\": \"OrderLines.Expiry Rate %\", \"NativeReferenceName\": \"Expiry Rate %\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 763.0,
+          "y": 84,
+          "z": 31000,
+          "width": 237.0,
+          "height": 104,
+          "config": "{\"name\": \"ebc1169901b3a56fe43b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 763.0, \"y\": 84, \"z\": 31000, \"width\": 237.0, \"height\": 104, \"tabOrder\": 31000}}], \"singleVisual\": {\"visualType\": \"card\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Values\": [{\"queryRef\": \"OrderLines.Top 10 SKU Share of Expiry\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Top 10 SKU Share of Expiry\"}, \"Name\": \"OrderLines.Top 10 SKU Share of Expiry\", \"NativeReferenceName\": \"Top 10 SKU Share of Expiry\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#5C2E3E'\"}}}}}, \"fontSize\": {\"expr\": {\"Literal\": {\"Value\": \"24D\"}}}}}], \"categoryLabels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"color\": {\"solid\": {\"color\": {\"expr\": {\"Literal\": {\"Value\": \"'#6E5A61'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 204,
+          "z": 32000,
+          "width": 620,
+          "height": 504,
+          "config": "{\"name\": \"8a1d6b182109a257d52b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 204, \"z\": 32000, \"width\": 620, \"height\": 504, \"tabOrder\": 32000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.product_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Expired Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"product_name\"}, \"Name\": \"Product.product_name\", \"NativeReferenceName\": \"product_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}, \"Name\": \"OrderLines.Expired Value\", \"NativeReferenceName\": \"Expired Value\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Expired value by product, highest first'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 648,
+          "y": 204,
+          "z": 33000,
+          "width": 616,
+          "height": 250,
+          "config": "{\"name\": \"30bcbac18cf7925769f4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 648, \"y\": 204, \"z\": 33000, \"width\": 616, \"height\": 250, \"tabOrder\": 33000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Product.atc_group_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Expired Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"p\", \"Entity\": \"Product\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"p\"}}, \"Property\": \"atc_group_name\"}, \"Name\": \"Product.atc_group_name\", \"NativeReferenceName\": \"atc_group_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}, \"Name\": \"OrderLines.Expired Value\", \"NativeReferenceName\": \"Expired Value\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Expired value by therapeutic group'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 648,
+          "y": 466,
+          "z": 34000,
+          "width": 300,
+          "height": 242,
+          "config": "{\"name\": \"ca7cc78a3d91937b7843\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 648, \"y\": 466, \"z\": 34000, \"width\": 300, \"height\": 242, \"tabOrder\": 34000}}], \"singleVisual\": {\"visualType\": \"donutChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Warehouse.side\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Expired Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"w\", \"Entity\": \"Warehouse\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"w\"}}, \"Property\": \"side\"}, \"Name\": \"Warehouse.side\", \"NativeReferenceName\": \"side\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}, \"Name\": \"OrderLines.Expired Value\", \"NativeReferenceName\": \"Expired Value\"}]}, \"objects\": {\"labels\": [{\"properties\": {\"labelStyle\": {\"expr\": {\"Literal\": {\"Value\": \"'Percent of total'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'By warehouse'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 960,
+          "y": 466,
+          "z": 35000,
+          "width": 304,
+          "height": 242,
+          "config": "{\"name\": \"6cc5a27e53c401dfc3c5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 960, \"y\": 466, \"z\": 35000, \"width\": 304, \"height\": 242, \"tabOrder\": 35000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"drillFilterOtherVisuals\": true, \"projections\": {\"Category\": [{\"queryRef\": \"Calendar.year_month\", \"active\": true}], \"Y\": [{\"queryRef\": \"OrderLines.Expired Value\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"c\", \"Entity\": \"Calendar\", \"Type\": 0}, {\"Name\": \"o\", \"Entity\": \"OrderLines\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}, \"Name\": \"Calendar.year_month\", \"NativeReferenceName\": \"year_month\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"o\"}}, \"Property\": \"Expired Value\"}, \"Name\": \"OrderLines.Expired Value\", \"NativeReferenceName\": \"Expired Value\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"year_month\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Expired value by month'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "config": "{}",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "config": "{\"version\": \"5.70\", \"themeCollection\": {\"baseTheme\": {\"name\": \"CY26SU02\", \"type\": 2, \"version\": {\"visual\": \"2.6.0\", \"report\": \"3.1.0\", \"page\": \"2.3.0\"}}, \"customTheme\": {\"name\": \"WineGold.json\", \"type\": 1, \"version\": {\"visual\": \"2.7.0\", \"report\": \"3.2.0\", \"page\": \"2.3.1\"}}}, \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true, \"linguisticSchemaSyncVersion\": 2, \"settings\": {\"useNewFilterPaneExperience\": true, \"allowChangeFilterTypes\": true, \"useStylableVisualContainerHeader\": true, \"queryLimitOption\": 6, \"useEnhancedTooltips\": true, \"exportDataMode\": 1, \"useDefaultAggregateDisplayName\": true}, \"objects\": {\"section\": [{\"properties\": {\"verticalAlignment\": {\"expr\": {\"Literal\": {\"Value\": \"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0
+}

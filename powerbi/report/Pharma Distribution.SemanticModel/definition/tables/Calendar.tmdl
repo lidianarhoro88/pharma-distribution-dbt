@@ -1,0 +1,69 @@
+table Calendar
+	lineageTag: e78a71b3-b151-6ad2-51cb-4589906395c7
+	dataCategory: Time
+
+	column date_day
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: 3d2451af-36d8-6d2e-117e-068bf82e4b89
+		summarizeBy: none
+		sourceColumn: date_day
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7003d2e1-eb54-c287-1de1-1f6f8b2cb333
+		summarizeBy: none
+		sourceColumn: year
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: ebe201c6-40dd-9b03-d484-b8f42802a0f2
+		summarizeBy: none
+		sourceColumn: quarter
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: b49b6313-d1d3-1e25-4c84-a0b94fade85f
+		summarizeBy: none
+		sourceColumn: month
+
+	column year_month
+		dataType: string
+		lineageTag: e052d12f-0109-cf6f-a60c-96d5257d01bb
+		summarizeBy: none
+		sourceColumn: year_month
+
+	column month_name
+		dataType: string
+		lineageTag: 3e3f49c4-7492-d825-3b2c-1e725d7449ff
+		summarizeBy: none
+		sourceColumn: month_name
+		sortByColumn: month
+
+	column iso_day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 7afba43c-c5c2-324f-6560-0b8ca592d917
+		summarizeBy: none
+		sourceColumn: iso_day_of_week
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 0be8cb90-f2a6-2b5a-6642-f83dfb7caa9a
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+	partition Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/Date.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"date_day", type date}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month", Int64.Type}, {"year_month", type text}, {"month_name", type text}, {"iso_day_of_week", Int64.Type}, {"is_weekend", type logical}}, "en-US")
+				in
+				    Typed
+

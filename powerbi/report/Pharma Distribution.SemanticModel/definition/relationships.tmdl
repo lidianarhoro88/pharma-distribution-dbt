@@ -1,0 +1,28 @@
+relationship 634c024e-8fd3-b406-1881-10199ef2c2d6
+	fromColumn: OrderLines.order_date
+	toColumn: Calendar.date_day
+
+relationship fd767f78-f1d2-c0ee-d69b-e78ef6dc69e9
+	fromColumn: OrderLines.sku
+	toColumn: Product.sku
+
+relationship a1cc14cb-bab8-2b0b-4fce-f23bfb1b9e70
+	fromColumn: OrderLines.pharmacy_code
+	toColumn: Pharmacy.pharmacy_code
+
+relationship 8b2e13cf-7215-7f5d-2bcf-fbf2d2d630d9
+	fromColumn: OrderLines.warehouse
+	toColumn: Warehouse.warehouse
+
+relationship 972693b9-e32e-490d-33ce-cb47c23f9265
+	fromColumn: Deliveries.order_date
+	toColumn: Calendar.date_day
+
+relationship 2983a4e1-8745-bf59-d764-c203f611dcb6
+	fromColumn: Deliveries.pharmacy_code
+	toColumn: Pharmacy.pharmacy_code
+
+relationship 9ee2424b-1179-226b-e5c5-9fc57203278d
+	fromColumn: Deliveries.warehouse
+	toColumn: Warehouse.warehouse
+

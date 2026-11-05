@@ -1,0 +1,19 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Calendar", "Warehouse", "Product", "Pharmacy", "OrderLines", "Deliveries"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table Calendar
+ref table Warehouse
+ref table Product
+ref table Pharmacy
+ref table OrderLines
+ref table Deliveries
+

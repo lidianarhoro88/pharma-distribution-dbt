@@ -1,0 +1,51 @@
+table Pharmacy
+	lineageTag: ce2f2d8f-f5a7-3137-54fb-b3e85768689a
+
+	column pharmacy_code
+		dataType: string
+		lineageTag: 06f1d566-1f6b-6cdc-4869-ad503784c988
+		summarizeBy: none
+		sourceColumn: pharmacy_code
+
+	column pharmacy_name
+		dataType: string
+		lineageTag: ece4e471-e929-8f83-9fbb-3e0a22159c06
+		summarizeBy: none
+		sourceColumn: pharmacy_name
+
+	column district
+		dataType: string
+		lineageTag: 6be52982-98f2-f2dc-96f1-3423ae51ad54
+		summarizeBy: none
+		sourceColumn: district
+
+	column segment
+		dataType: string
+		lineageTag: f934c23d-2ae7-6f36-7a05-c37069d7ade1
+		summarizeBy: none
+		sourceColumn: segment
+
+	column credit_limit_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e116e87a-d55e-0e05-400a-ccd6334b977f
+		summarizeBy: none
+		sourceColumn: credit_limit_try
+
+	column opened_on
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a0fa81ab-8978-e823-f2b8-783841900533
+		summarizeBy: none
+		sourceColumn: opened_on
+
+	partition Pharmacy = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/Pharmacy.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"pharmacy_code", type text}, {"pharmacy_name", type text}, {"district", type text}, {"segment", type text}, {"credit_limit_try", type number}, {"opened_on", type date}}, "en-US")
+				in
+				    Typed
+

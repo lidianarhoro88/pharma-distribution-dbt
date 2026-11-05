@@ -1,0 +1,200 @@
+table OrderLines
+	lineageTag: 1e5f70fb-a754-83ce-0434-c9a2a68fe4cf
+
+	measure 'Net Sales' = CALCULATE ( SUM ( OrderLines[net_amount_try] ), OrderLines[is_cancelled] = FALSE () )
+		formatString: ₺#,0
+		displayFolder: Sales
+		lineageTag: 30085924-8430-a931-a1dd-9d2b10e410f1
+
+	measure 'Returns Value' = CALCULATE ( SUM ( OrderLines[returned_amount_try] ), OrderLines[is_cancelled] = FALSE () )
+		formatString: ₺#,0
+		displayFolder: Sales
+		lineageTag: 7fa7ff5d-f3d8-a2ec-eb7f-a92d84d90745
+
+	measure 'Return Rate %' = DIVIDE ( [Returns Value], [Net Sales] )
+		formatString: 0.00%
+		displayFolder: Sales
+		lineageTag: a2c61491-e605-a1c5-2175-8aa28911a2b0
+
+	measure 'Orders' = CALCULATE ( DISTINCTCOUNT ( OrderLines[order_id] ), OrderLines[is_cancelled] = FALSE () )
+		formatString: #,0
+		displayFolder: Sales
+		lineageTag: 98957d82-4f31-2293-1a9c-391f7cce5d97
+
+	measure 'Cancelled Orders' = CALCULATE ( DISTINCTCOUNT ( OrderLines[order_id] ), OrderLines[is_cancelled] = TRUE () )
+		formatString: #,0
+		displayFolder: Sales
+		lineageTag: fa257427-5ca0-14f7-3343-98c291d5c994
+
+	measure 'Cancellation Rate %' = DIVIDE ( [Cancelled Orders], [Orders] + [Cancelled Orders] )
+		formatString: 0.0%
+		displayFolder: Sales
+		lineageTag: 2f52c0be-1d4a-3f12-06e2-0ee762236d31
+
+	measure 'Active Pharmacies' = CALCULATE ( DISTINCTCOUNT ( OrderLines[pharmacy_code] ), OrderLines[is_cancelled] = FALSE () )
+		formatString: #,0
+		displayFolder: Sales
+		lineageTag: 4c6012dd-f47f-9006-e350-3b583a54d4e6
+
+	measure 'Avg Order Value' = DIVIDE ( [Net Sales], [Orders] )
+		formatString: ₺#,0
+		displayFolder: Sales
+		lineageTag: c69457a5-5f47-4ee3-4c1b-150cb725e5a3
+
+	measure 'Net Sales PM' = CALCULATE ( [Net Sales], DATEADD ( 'Calendar'[date_day], -1, MONTH ) )
+		formatString: ₺#,0
+		displayFolder: Sales
+		lineageTag: 292b4bd7-73f1-65b7-1ecb-46c2ec1aa4ef
+
+	measure 'Net Sales MoM %' = DIVIDE ( [Net Sales] - [Net Sales PM], [Net Sales PM] )
+		formatString: 0.0%
+		displayFolder: Sales
+		lineageTag: ee60d2d2-ef13-39b5-729a-793d4cb0a96f
+
+	measure 'Expired Units' = CALCULATE ( SUM ( OrderLines[expired_quantity] ), OrderLines[is_cancelled] = FALSE () )
+		formatString: #,0
+		displayFolder: Expiry
+		lineageTag: b7036f11-d312-52f0-824b-aef98a9b7f9e
+
+	measure 'Expired Value' = CALCULATE ( SUMX ( OrderLines, OrderLines[expired_quantity] * OrderLines[unit_price_try] * ( 1 - OrderLines[discount_pct] / 100 ) ), OrderLines[is_cancelled] = FALSE () )
+		formatString: ₺#,0
+		displayFolder: Expiry
+		lineageTag: 1076ae9d-7c33-9952-768a-6416062e4f2c
+
+	measure 'Expiry Rate %' = DIVIDE ( [Expired Units], CALCULATE ( SUM ( OrderLines[quantity] ), OrderLines[is_cancelled] = FALSE () ) )
+		formatString: 0.00%
+		displayFolder: Expiry
+		lineageTag: 6ae3143e-2a2d-30ef-8bd4-e3fab5765377
+
+	measure 'Top 10 SKU Share of Expiry' = VAR Top10 = TOPN ( 10, ALL ( Product[sku] ), [Expired Value] ) RETURN DIVIDE ( CALCULATE ( [Expired Value], Top10 ), CALCULATE ( [Expired Value], ALL ( Product ) ) )
+		formatString: 0.0%
+		displayFolder: Expiry
+		lineageTag: a675982b-67a2-7634-255c-116e8ad3f170
+
+	column line_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 744c5d2c-d6ec-43bb-f289-173505aefb78
+		summarizeBy: none
+		sourceColumn: line_id
+
+	column order_id
+		dataType: string
+		lineageTag: 3aaef0b6-2ca0-32a6-5f88-684a703985ca
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column order_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isHidden
+		lineageTag: cd8fd134-c292-8582-718e-bf5edd22659f
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column pharmacy_code
+		dataType: string
+		isHidden
+		lineageTag: d53d5f95-4811-b88f-f06c-d6c83854e49a
+		summarizeBy: none
+		sourceColumn: pharmacy_code
+
+	column sku
+		dataType: string
+		isHidden
+		lineageTag: 6f0ff8a3-7d77-9385-bf1a-30ad0d332417
+		summarizeBy: none
+		sourceColumn: sku
+
+	column warehouse
+		dataType: string
+		isHidden
+		lineageTag: fc0cc1fb-0eee-ee57-b5f9-54b8329e1340
+		summarizeBy: none
+		sourceColumn: warehouse
+
+	column order_status
+		dataType: string
+		lineageTag: ba470ff9-b134-c3b1-cc20-32d6d0804ccb
+		summarizeBy: none
+		sourceColumn: order_status
+
+	column is_cancelled
+		dataType: boolean
+		lineageTag: 670381eb-cb29-d141-42a3-8a3ba22807da
+		summarizeBy: none
+		sourceColumn: is_cancelled
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 89561afa-4ff3-8a87-8d39-d3f430a0fb2d
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column unit_price_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f4d16dd9-3d5f-c51e-bfaa-04db87c8d9f7
+		summarizeBy: none
+		sourceColumn: unit_price_try
+
+	column discount_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 14a7c3fd-a0ec-33c9-6bb0-83b254290d7d
+		summarizeBy: none
+		sourceColumn: discount_pct
+
+	column gross_amount_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 40be3450-513b-56b5-b5c5-3b5cf98ce5d9
+		summarizeBy: sum
+		sourceColumn: gross_amount_try
+
+	column net_amount_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: affd7fe0-28cc-ad66-5a6c-a81aa77ecca8
+		summarizeBy: sum
+		sourceColumn: net_amount_try
+
+	column returned_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 75cf7479-53a6-bfc0-ef80-61025adb563d
+		summarizeBy: sum
+		sourceColumn: returned_quantity
+
+	column expired_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: c527784e-2d56-cbc6-38f5-ff884be72161
+		summarizeBy: sum
+		sourceColumn: expired_quantity
+
+	column returned_amount_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b004d8b5-62ce-d839-07ce-1a0cc7a8536f
+		summarizeBy: sum
+		sourceColumn: returned_amount_try
+
+	column net_after_returns_try
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 15acff49-5f9f-96ea-b55e-c13eb80ff846
+		summarizeBy: sum
+		sourceColumn: net_after_returns_try
+
+	partition OrderLines = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/OrderLines.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"line_id", Int64.Type}, {"order_id", type text}, {"order_date", type date}, {"pharmacy_code", type text}, {"sku", type text}, {"warehouse", type text}, {"order_status", type text}, {"is_cancelled", type logical}, {"quantity", Int64.Type}, {"unit_price_try", type number}, {"discount_pct", type number}, {"gross_amount_try", type number}, {"net_amount_try", type number}, {"returned_quantity", Int64.Type}, {"expired_quantity", Int64.Type}, {"returned_amount_try", type number}, {"net_after_returns_try", type number}}, "en-US")
+				in
+				    Typed
+

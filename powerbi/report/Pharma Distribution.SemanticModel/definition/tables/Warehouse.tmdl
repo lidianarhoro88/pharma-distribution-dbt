@@ -1,0 +1,25 @@
+table Warehouse
+	lineageTag: faf93ec3-77b8-7e13-f851-547b09b397f9
+
+	column warehouse
+		dataType: string
+		lineageTag: 7ac2be84-2a0f-1f07-dfc3-5c2615941878
+		summarizeBy: none
+		sourceColumn: warehouse
+
+	column side
+		dataType: string
+		lineageTag: 891634e6-bb70-ac52-c55f-0c986ecd1076
+		summarizeBy: none
+		sourceColumn: side
+
+	partition Warehouse = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/lidianarhoro88/pharma-distribution-dbt/main/powerbi/data/Warehouse.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"warehouse", type text}, {"side", type text}}, "en-US")
+				in
+				    Typed
+
